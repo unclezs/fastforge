@@ -46,7 +46,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ],
     },
     {
-      text: '制作器',
+      text: 'Makers',
       collapsed: false,
       items: [
         { text: 'aab', link: '/makers/aab/' },
@@ -63,7 +63,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ],
     },
     {
-      text: '发布器',
+      text: 'Publishers',
       collapsed: false,
       items: [
         { text: 'appcenter', link: '/publishers/appcenter/' },
