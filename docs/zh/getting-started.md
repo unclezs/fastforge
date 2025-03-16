@@ -2,6 +2,8 @@
 
 Fastforge 是一款全能的 Flutter 应用打包和发布工具，为您提供一站式解决方案，满足各种分发需求。
 
+> **更名通知：** ~~Flutter Distributor~~ 已更名为 FastForge。如果您之前使用的是 ~~Flutter Distributor~~，请注意所有功能保持不变，但包名、命令和文档已更新以反映此变更。
+
 ## 安装
 
 ```
