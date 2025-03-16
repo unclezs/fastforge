@@ -2,7 +2,7 @@
 
 Fastforge is an all-in-one Flutter application packaging and distribution tool, providing you with a one-stop solution to meet various distribution needs.
 
-> **Name Change Notice:** ~~Flutter Distributor~~ has been renamed to FastForge. If you were previously using ~~Flutter Distributor~~, please note that all functionality remains the same, but the package name, commands, and documentation have been updated to reflect this change. 
+> **Name Change Notice:** ~~Flutter Distributor~~ has been renamed to FastForge. If you were previously using ~~Flutter Distributor~~, please note that all functionality remains the same, but the package name, commands, and documentation have been updated to reflect this change.
 
 ## Installation
 

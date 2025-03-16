@@ -7,4 +7,4 @@
 
 ---
 
-Part of [flutter_distributor](https://github.com/leanflutter/flutter_distributor), See also https://distributor.leanflutter.dev
+Part of [fastforge](https://github.com/fastforgedev/fastforge), See also https://fastforge.dev

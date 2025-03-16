@@ -2,12 +2,12 @@
 layout: home
 
 title: Fastforge
-titleTemplate: Make your app distribution with ease.
+titleTemplate: 让您的应用分发变得更轻松。
 
 hero:
   name: Fastforge
-  text: Make your app distribution with ease.
-  tagline: Build, package, and publish with unparalleled efficiency.
+  text: 让您的应用分发变得更轻松。
+  tagline: 以无与伦比的效率构建、打包和发布。
   actions:
     - theme: brand
       text: 立即开始

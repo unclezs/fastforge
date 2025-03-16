@@ -1,5 +1,5 @@
-name: flutter_distributor
-repository: https://github.com/leanflutter/flutter_distributor
+name: fastforge
+repository: https://github.com/fastforgedev/fastforge
 
 packages:
   - apps/**
@@ -42,10 +42,10 @@ scripts:
         - dependency_validator
 
   activate:
-    run: melos exec --scope="flutter_distributor" -- dart pub global activate -s path .
+    run: melos exec --scope="fastforge" -- dart pub global activate -s path .
 
   build_apk:
-    run: melos exec --scope="hello_world" -- flutter_distributor release --name dev --jobs android-apk --skip-clean
+    run: melos exec --scope="hello_world" -- fastforge release --name dev --jobs android-apk --skip-clean
 
   build_ipa:
-    run: melos exec --scope="hello_world" -- flutter_distributor release --name dev --jobs ios-ipa --skip-clean
+    run: melos exec --scope="hello_world" -- fastforge release --name dev --jobs ios-ipa --skip-clean

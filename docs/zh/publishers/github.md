@@ -1,6 +1,6 @@
 # github
 
-The github target publishes your package artifacts to the [github](https://github.com/leanflutter/fastforge/releases) release.
+The github target publishes your package artifacts to the [github](https://github.com/fastforgedev/fastforge/releases) release.
 
 ## 设置环境变量
 

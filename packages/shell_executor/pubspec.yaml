@@ -1,8 +1,8 @@
 name: shell_executor
 description: A simple shell commands executor.
 version: 0.1.6
-homepage: https://distributor.leanflutter.dev
-repository: https://github.com/leanflutter/flutter_distributor/tree/main/packages/shell_executor
+homepage: https://fastforge.dev
+repository: https://github.com/fastforgedev/fastforge/tree/main/packages/shell_executor
 
 environment:
   sdk: ">=2.16.0 <4.0.0"

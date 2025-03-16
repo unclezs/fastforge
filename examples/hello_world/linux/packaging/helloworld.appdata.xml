@@ -9,10 +9,10 @@
         <p>The application can be used as a demo for the packaging of flutter application to various platform</p>
     </description>
     <launchable type="desktop-id">hello_world.desktop</launchable>
-    <url type="homepage">https://github.com/leanflutter/flutter_distributor/</url>
+    <url type="homepage">https://github.com/fastforgedev/fastforge/</url>
     <screenshots>
         <screenshot type="default">
-            <image>https://github.com/leanflutter/flutter_distributor/assets/41370460/bf942f1d-d26b-441d-b5b2-4ca210b5ea92</image>
+            <image>https://github.com/fastforgedev/fastforge/assets/41370460/bf942f1d-d26b-441d-b5b2-4ca210b5ea92</image>
         </screenshot>
     </screenshots>
     <releases>

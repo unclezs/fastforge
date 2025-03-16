@@ -13,7 +13,7 @@
 # 不要在其他应用的安装程序中使用相同的 AppId 值。
 app_id: 5B599538-42B1-4826-A479-AF079F21A65D
 publisher: LeanFlutter
-publisher_url: https://github.com/leanflutter/fastforge
+publisher_url: https://github.com/fastforgedev/fastforge
 display_name: Hello 世界
 create_desktop_icon: true
 # See: https://jrsoftware.org/ishelp/index.php?topic=setup_defaultdirname
@@ -41,7 +41,7 @@ fastforge package --platform windows --targets exe
 
 1. 添加 `script_template: inno_setup.iss` 到你的 `make_config.yaml`
 2. 在同一目录中创建 `inno_setup.iss`
-3. 从源代码中复制 [原始模板](https://github.com/leanflutter/fastforge/blob/main/packages/flutter_app_packager/lib/src/makers/exe/inno_setup/inno_setup_script.dart) 并进行调整。
+3. 从源代码中复制 [原始模板](https://github.com/fastforgedev/fastforge/blob/main/packages/flutter_app_packager/lib/src/makers/exe/inno_setup/inno_setup_script.dart) 并进行调整。
 
 ## 相关链接
 
