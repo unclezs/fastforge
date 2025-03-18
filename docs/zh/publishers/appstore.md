@@ -59,6 +59,22 @@ releases:
           target: appstore
 ```
 
+> **注意**: 确保你的 `export-options-plist` 中的 `method` 设置为 `app-store`。其他导出方法如 `ad-hoc`、`development` 或 `enterprise` 将导致上传到 App Store Connect 失败。
+
+以下是一个针对 App Store 提交的正确设置的 `ExportOptions.plist` 文件示例：
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>method</key>
+    <string>app-store</string>
+    <!-- ... other settings ... -->
+</dict>
+</plist>
+```
+
 运行:
 
 ```

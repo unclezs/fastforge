@@ -59,6 +59,22 @@ releases:
           target: appstore
 ```
 
+> **Note**: Make sure your `export-options-plist` has the `method` set to `app-store`. Other export methods like `ad-hoc`, `development`, or `enterprise` will cause the upload to App Store Connect to fail.
+
+Here's an example of an `ExportOptions.plist` file with the correct settings for App Store submission:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>method</key>
+    <string>app-store</string>
+    <!-- ... other settings ... -->
+</dict>
+</plist>
+```
+
 Run:
 
 ```
