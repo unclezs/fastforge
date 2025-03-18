@@ -1,4 +1,4 @@
-# pgyer
+# Pgyer
 
 The pgyer target publishes your `.apk` or `.ipa` artifacts to the [pgyer.com](https://pgyer.com).
 

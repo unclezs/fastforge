@@ -1,4 +1,4 @@
-# qiniu
+# Qiniu
 
 The qiniu target publishes your package artifacts to the [qiniu.com](https://qiniu.com).
 

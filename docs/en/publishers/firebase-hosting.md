@@ -1,4 +1,4 @@
-# firebase-hosting
+# Firebase Hosting
 
 The firebase-hosting target publishes your web artifacts to the [firebase hosting](https://firebase.google.com/docs/hosting).
 

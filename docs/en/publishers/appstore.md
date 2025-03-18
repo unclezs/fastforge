@@ -1,4 +1,4 @@
-# appstore
+# App Store
 
 The appstore target publishes your package artifacts to the [App Store Connect](https://appstoreconnect.apple.com/apps).
 

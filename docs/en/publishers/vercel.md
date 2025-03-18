@@ -1,4 +1,4 @@
-# vercel
+# Vercel
 
 The vercel target publishes your web artifacts to the [vercel.com](https://vercel.com).
 

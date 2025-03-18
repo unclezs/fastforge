@@ -1,4 +1,4 @@
-# playstore
+# Play Store
 
 The playstore target publishes your package artifacts to the [Google Play](https://play.google.com/store/apps).
 

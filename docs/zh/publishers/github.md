@@ -1,4 +1,4 @@
-# github
+# GitHub
 
 The github target publishes your package artifacts to the [github](https://github.com/fastforgedev/fastforge/releases) release.
 

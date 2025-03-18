@@ -1,4 +1,4 @@
-# appcenter
+# App Center
 
 The appcenter target publishes your `.apk` or `.ipa` artifacts to the [appcenter](https://appcenter.ms).
 
