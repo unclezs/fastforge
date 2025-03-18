@@ -16,7 +16,7 @@ hero:
       text: GitHub
       link: https://github.com/fastforgedev/fastforge
   image:
-    src: /logo-large.png
+    src: /hero-image.svg
     alt: Fastforge
 
 features:
