@@ -8,7 +8,7 @@
 [discord-url]: https://discord.gg/zPa6EZ2jqb
 [all-contributors-image]: https://img.shields.io/github/all-contributors/fastforgedev/fastforge?color=ee8449&style=flat-square
 
-一款全能的 [Flutter](https://flutter.dev) 应用打包和发布工具，为您提供一站式解决方案，满足各种分发需求。
+卓越的 [Flutter](https://flutter.dev) 应用打包与发布工具，为您提供一站式解决方案，满足各种分发需求。
 
 > **更名通知：** ~~Flutter Distributor~~ 已更名为 FastForge。如果您之前使用的是 ~~Flutter Distributor~~，请注意所有功能保持不变，但包名、命令和文档已更新以反映此变更。
 
@@ -20,57 +20,57 @@
 
 ## 文档
 
-完整的文档可以在 [fastforge.dev](https://fastforge.dev/zh) 上找到。
+完整文档请访问 [fastforge.dev](https://fastforge.dev/zh)。
 
-## Features
+## 特性
 
 - **全面的打包格式支持** - 轻松生成平台特定的分发文件，包括APK、IPA和桌面安装包。
-- **无缝分发平台集成** - 直接发布到包括Google Play Store和Apple App Store在内的主要应用市场，简化您的发布流程。
+- **无缝集成主流分发平台** - 直接发布到Google Play Store和Apple App Store等主要应用市场，简化您的发布流程。
 - **灵活的配置选项** - 通过直观且强大的配置设置自定义您的打包和发布过程。
-- **面向未来的更新** - 持续维护以确保与最新Flutter框架和平台要求的兼容性。
+- **持续更新与维护** - 确保与最新Flutter框架和平台要求的兼容性。
 
-### Supported Package Formats
+### 支持的打包格式
 
-- **Android**: [AAB](https://fastforge.dev/en/makers/aab), [APK](https://fastforge.dev/en/makers/apk)
-- **iOS**: [IPA](https://fastforge.dev/en/makers/ipa)
-- **Linux**: [AppImage](https://fastforge.dev/en/makers/appimage), [DEB](https://fastforge.dev/en/makers/deb), [RPM](https://fastforge.dev/en/makers/rpm), Pacman
-- **macOS**: [DMG](https://fastforge.dev/en/makers/dmg), [PKG](https://fastforge.dev/en/makers/pkg)
-- **Windows**: [EXE](https://fastforge.dev/en/makers/exe), [MSIX](https://fastforge.dev/en/makers/msix)
-- **Universal**: [ZIP](https://fastforge.dev/en/makers/zip)
-- 更多格式支持即将推出...
+- **Android**: [AAB](https://fastforge.dev/zh/makers/aab), [APK](https://fastforge.dev/zh/makers/apk)
+- **iOS**: [IPA](https://fastforge.dev/zh/makers/ipa)
+- **Linux**: [AppImage](https://fastforge.dev/zh/makers/appimage), [DEB](https://fastforge.dev/zh/makers/deb), [RPM](https://fastforge.dev/zh/makers/rpm), Pacman
+- **macOS**: [DMG](https://fastforge.dev/zh/makers/dmg), [PKG](https://fastforge.dev/zh/makers/pkg)
+- **Windows**: [EXE](https://fastforge.dev/zh/makers/exe), [MSIX](https://fastforge.dev/zh/makers/msix)
+- **通用**: [ZIP](https://fastforge.dev/zh/makers/zip)
+- 更多格式持续增加中...
 
-### Supported Distribution Platforms
+### 支持的分发平台
 
-- [App Center](https://fastforge.dev/en/publishers/appcenter)
-- [App Store](https://fastforge.dev/en/publishers/appstore)
-- [Firebase](https://fastforge.dev/en/publishers/firebase)
-- [Firebase Hosting](https://fastforge.dev/en/publishers/firebase-hosting)
-- [FIR](https://fastforge.dev/en/publishers/fir)
-- [GitHub Releases](https://fastforge.dev/en/publishers/github)
-- [PGYER](https://fastforge.dev/en/publishers/pgyer)
-- [Play Store](https://fastforge.dev/en/publishers/playstore)
-- [Qiniu](https://fastforge.dev/en/publishers/qiniu)
-- [Vercel](https://fastforge.dev/en/publishers/vercel)
-- 更多平台支持即将推出...
+- [App Center](https://fastforge.dev/zh/publishers/appcenter)
+- [App Store](https://fastforge.dev/zh/publishers/appstore)
+- [Firebase](https://fastforge.dev/zh/publishers/firebase)
+- [Firebase Hosting](https://fastforge.dev/zh/publishers/firebase-hosting)
+- [FIR](https://fastforge.dev/zh/publishers/fir)
+- [GitHub Releases](https://fastforge.dev/zh/publishers/github)
+- [PGYER](https://fastforge.dev/zh/publishers/pgyer)
+- [Play Store](https://fastforge.dev/zh/publishers/playstore)
+- [Qiniu](https://fastforge.dev/zh/publishers/qiniu)
+- [Vercel](https://fastforge.dev/zh/publishers/vercel)
+- 更多平台持续增加中...
 
-### 安装
+## 安装
 
 ```bash
 dart pub global activate fastforge
 ```
 
-## Quick Start
+## 快速开始
 
-1. Add `distribute_options.yaml` to your project root:
+1. 在项目根目录添加 `distribute_options.yaml` 文件:
 
 ```yaml
 variables:
-  PGYER_API_KEY: "your api key" # Replace with your own API keys
+  PGYER_API_KEY: "your api key" # 替换为您自己的API密钥
 output: dist/
 releases:
   - name: dev
     jobs:
-      # Build and publish APK to PGYER
+      # 构建并发布APK到PGYER
       - name: release-dev-android
         package:
           platform: android
@@ -81,7 +81,7 @@ releases:
               APP_ENV: dev
         publish_to: pgyer
 
-      # Build and publish IPA to PGYER
+      # 构建并发布IPA到PGYER
       - name: release-dev-ios
         package:
           platform: ios
@@ -93,35 +93,35 @@ releases:
         publish_to: pgyer
 ```
 
-> `build_args` 是 `flutter build` 命令所支持的参数，请根据你的项目进行修改。
+> 注意: `build_args` 是 `flutter build` 命令支持的参数，请根据您的项目需求进行修改。
 
-2. Release your app:
+2. 发布您的应用:
 
 ```bash
 fastforge release --name dev
 ```
 
-## CLI Commands
+## CLI 命令
 
-### Package Your App
+### 打包应用
 
 ```bash
 fastforge package --platform=android --targets=aab,apk
 ```
 
-### Publish a Package
+### 发布应用包
 
 ```bash
 fastforge publish --path dist/your-app-1.0.0+1-android.apk --targets pgyer
 ```
 
-### Release (Package + Publish)
+### 发布（打包 + 发布）
 
 ```bash
 fastforge release --name dev
 ```
 
-## 谁在用使用它？
+## 谁在使用？
 
 - [比译](https://biyidev.com/) - 一个便捷的翻译和词典应用。
 - [钱迹](https://qianjiapp.com/) - 一款纯粹记账的应用。

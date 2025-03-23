@@ -8,7 +8,7 @@
 [discord-url]: https://discord.gg/zPa6EZ2jqb
 [all-contributors-image]: https://img.shields.io/github/all-contributors/fastforgedev/fastforge?color=ee8449&style=flat-square
 
-An all-in-one [Flutter](https://flutter.dev) application packaging and distribution tool, providing you with a one-stop solution to meet various distribution needs.
+The ultimate all-in-one [Flutter](https://flutter.dev) application packaging and distribution tool, providing a seamless solution for all your distribution needs.
 
 > **Name Change Notice:** ~~Flutter Distributor~~ has been renamed to FastForge. If you were previously using ~~Flutter Distributor~~, please note that all functionality remains the same, but the package name, commands, and documentation have been updated to reflect this change.
 
@@ -20,7 +20,7 @@ English | [简体中文](./README-ZH.md)
 
 ## Documentation
 
-The full documentation can be found on [fastforge.dev](https://fastforge.dev/).
+Complete documentation is available at [fastforge.dev](https://fastforge.dev/).
 
 ## Features
 
@@ -37,7 +37,7 @@ The full documentation can be found on [fastforge.dev](https://fastforge.dev/).
 - **macOS**: [DMG](https://fastforge.dev/en/makers/dmg), [PKG](https://fastforge.dev/en/makers/pkg)
 - **Windows**: [EXE](https://fastforge.dev/en/makers/exe), [MSIX](https://fastforge.dev/en/makers/msix)
 - **Universal**: [ZIP](https://fastforge.dev/en/makers/zip)
-- More format support coming soon...
+- More formats coming soon...
 
 ### Supported Distribution Platforms
 
@@ -51,7 +51,7 @@ The full documentation can be found on [fastforge.dev](https://fastforge.dev/).
 - [Play Store](https://fastforge.dev/en/publishers/playstore)
 - [Qiniu](https://fastforge.dev/en/publishers/qiniu)
 - [Vercel](https://fastforge.dev/en/publishers/vercel)
-- More platform support coming soon...
+- More platforms coming soon...
 
 ## Installation
 
@@ -93,7 +93,7 @@ releases:
         publish_to: pgyer
 ```
 
-> The `build_args` are the args supported by the `flutter build` command, please modify it according to your project.
+> Note: `build_args` are parameters supported by the `flutter build` command. Modify them according to your project requirements.
 
 2. Release your app:
 
@@ -121,7 +121,7 @@ fastforge publish --path dist/your-app-1.0.0+1-android.apk --targets pgyer
 fastforge release --name dev
 ```
 
-## Who's using it?
+## Who's Using It?
 
 - [Biyi](https://biyidev.com/) - A convenient translation and dictionary app.
 - [Qianji](https://qianjiapp.com/) - A purely bookkeeping app.
