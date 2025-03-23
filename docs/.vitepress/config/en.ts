@@ -27,9 +27,13 @@ export const en = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
-      text: 'Guide',
+      text: 'Docs',
       link: '/getting-started',
       activeMatch: '/getting-started',
+    },
+    {
+      text: 'LeanFlutter',
+      link: 'https://leanflutter.dev',
     },
   ]
 }

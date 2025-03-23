@@ -52,9 +52,13 @@ export const zh = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
-      text: '指南',
+      text: '文档',
       link: '/zh/getting-started',
       activeMatch: '/zh/getting-started',
+    },
+    {
+      text: 'LeanFlutter',
+      link: 'https://leanflutter.dev',
     },
   ]
 }
