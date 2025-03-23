@@ -22,10 +22,10 @@ hero:
 features:
   - icon: 📦
     title: Comprehensive Package Format Support
-    details: Generate platform-specific distribution files including APK, IPA, and desktop installation packages with ease.
+    details: Effortlessly generate platform-specific distribution files including APK, IPA, and desktop installation packages.
   - icon: 📱
     title: Seamless Distribution Platform Integration
-    details: Publish directly to major app marketplaces including the Google Play Store and Apple App Store, streamlining your release workflow.
+    details: Publish directly to major app marketplaces including Google Play Store and Apple App Store, streamlining your release workflow.
   - icon: ⚙️
     title: Flexible Configuration Options
     details: Customize your packaging and publishing process through intuitive yet powerful configuration settings.

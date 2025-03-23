@@ -2,7 +2,7 @@
 
 Fastforge 是一款全能的 Flutter 应用打包和发布工具，为您提供一站式解决方案，满足各种分发需求。
 
-> **更名通知：** ~~Flutter Distributor~~ 已更名为 FastForge。如果您之前使用的是 ~~Flutter Distributor~~，请注意所有功能保持不变，但包名、命令和文档已更新以反映此变更。
+> **更名通知：** ~~Flutter Distributor~~ 已更名为 Fastforge。如果您之前使用的是 ~~Flutter Distributor~~，请注意所有功能保持不变，但包名、命令和文档已更新以反映此变更。
 
 ## 安装
 
@@ -101,6 +101,46 @@ releases:
 ```
 fastforge release --name dev
 ```
+
+## 示例项目
+
+Fastforge 包含几个示例项目，可帮助您快速上手：
+
+- **[hello_world](https://github.com/fastforgedev/fastforge/tree/main/examples/hello_world)** - 演示核心功能的基础示例。
+- **[multiple_flavors](https://github.com/fastforgedev/fastforge/tree/main/examples/multiple_flavors)** - 展示如何配置多种应用风格的示例。
+- **[custom_binary_name](https://github.com/fastforgedev/fastforge/tree/main/examples/custom_binary_name)** - 如何自定义二进制输出名称的示例。
+
+## 高级用法
+
+### 环境变量
+
+Fastforge 支持在配置文件中使用环境变量。这对于 API 密钥等敏感信息特别有用：
+
+```yaml
+variables:
+  API_KEY: ${PGYER_API_KEY}  # 使用 PGYER_API_KEY 环境变量
+```
+
+### CI/CD 集成
+
+Fastforge 在 CI/CD 环境中运行良好。例如，使用 GitHub Actions：
+
+```yaml
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+      - name: 安装 Fastforge
+        run: dart pub global activate fastforge
+      - name: 构建并发布
+        run: fastforge release --name production
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+```
+
+查看[文档](https://fastforge.dev/zh/)获取更详细的 CI/CD 集成示例。
 
 ## 谢谢你
 
