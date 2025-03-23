@@ -7,4 +7,4 @@
 
 ---
 
-Part of [fastforge](https://github.com/fastforgedev/fastforge), See also https://fastforge.dev
+Part of [fastforge](https://github.com/fastforgedev/fastforge). For more information, visit https://fastforge.dev
