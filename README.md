@@ -10,7 +10,7 @@
 
 An all-in-one [Flutter](https://flutter.dev) application packaging and distribution tool, providing you with a one-stop solution to meet various distribution needs.
 
-> **Name Change Notice:** ~~Flutter Distributor~~ has been renamed to FastForge. If you were previously using ~~Flutter Distributor~~, please note that all functionality remains the same, but the package name, commands, and documentation have been updated to reflect this change. 
+> **Name Change Notice:** ~~Flutter Distributor~~ has been renamed to FastForge. If you were previously using ~~Flutter Distributor~~, please note that all functionality remains the same, but the package name, commands, and documentation have been updated to reflect this change.
 
 ---
 
@@ -24,54 +24,53 @@ The full documentation can be found on [fastforge.dev](https://fastforge.dev/).
 
 ## Features
 
-### Makers
+- **Comprehensive Package Format Support** - Generate platform-specific distribution files including APK, IPA, and desktop installation packages with ease.
+- **Seamless Distribution Platform Integration** - Publish directly to major app marketplaces including the Google Play Store and Apple App Store, streamlining your release workflow.
+- **Flexible Configuration Options** - Customize your packaging and publishing process through intuitive yet powerful configuration settings.
+- **Future-Proof Updates** - Continuously maintained to ensure compatibility with the latest Flutter framework and platform requirements.
 
-- [aab](./packages/flutter_app_packager/lib/src/makers/aab/) - Create a `aab` package for your app.
-- [apk](./packages/flutter_app_packager/lib/src/makers/apk/) - Create a `apk` package for your app.
-- [appimage](./packages/flutter_app_packager/lib/src/makers/appimage/) - Create a `AppImage` package for your app.
-- [deb](./packages/flutter_app_packager/lib/src/makers/deb/) - Create a `deb` package for your app.
-- [dmg](./packages/flutter_app_packager/lib/src/makers/dmg/) - Create a `dmg` package for your app.
-- [exe](./packages/flutter_app_packager/lib/src/makers/exe/) - Create a `exe` package for your app.
-- [ipa](./packages/flutter_app_packager/lib/src/makers/ipa/) - Create a `ipa` package for your app.
-- [msix](./packages/flutter_app_packager/lib/src/makers/msix/) - Create a `msix` package for your app.
-- [pacman](./packages/flutter_app_packager/lib/src/makers/pacman/) - Create a `pacman` package for your app.
-- [pkg](./packages/flutter_app_packager/lib/src/makers/pkg/) - Create a `pkg` package for your app.
-- [rpm](./packages/flutter_app_packager/lib/src/makers/rpm/) - Create a `rpm` package for your app.
-- [zip](./packages/flutter_app_packager/lib/src/makers/zip/) - Create a `zip` package for your app.
+### Supported Package Formats
 
-### Publishers
+- **Android**: [AAB](https://fastforge.dev/en/makers/aab), [APK](https://fastforge.dev/en/makers/apk)
+- **iOS**: [IPA](https://fastforge.dev/en/makers/ipa)
+- **Linux**: [AppImage](https://fastforge.dev/en/makers/appimage), [DEB](https://fastforge.dev/en/makers/deb), [RPM](https://fastforge.dev/en/makers/rpm), Pacman
+- **macOS**: [DMG](https://fastforge.dev/en/makers/dmg), [PKG](https://fastforge.dev/en/makers/pkg)
+- **Windows**: [EXE](https://fastforge.dev/en/makers/exe), [MSIX](https://fastforge.dev/en/makers/msix)
+- **Universal**: [ZIP](https://fastforge.dev/en/makers/zip)
+- More format support coming soon...
 
-- [appcenter](./packages/flutter_app_publisher/lib/src/publishers/appcenter/) - Publish your app to `appcenter`.
-- [appstore](./packages/flutter_app_publisher/lib/src/publishers/appstore/) - Publish your app to `appstore`.
-- [fir](./packages/flutter_app_publisher/lib/src/publishers/fir/) - Publish your app to `fir`.
-- [firebase](./packages/flutter_app_publisher/lib/src/publishers/firebase/) - Publish your app to `firebase`.
-- [firebase_hosting](./packages/flutter_app_publisher/lib/src/publishers/firebase_hosting/) - Publish your app to `firebase_hosting`.
-- [github](./packages/flutter_app_publisher/lib/src/publishers/github/) - Publish your app to `github` release.
-- [pgyer](./packages/flutter_app_publisher/lib/src/publishers/pgyer/) - Publish your app to `pgyer`.
-- [playstore](./packages/flutter_app_publisher/lib/src/publishers/playstore/) - Publish your app to `playstore`.
-- [qiniu](./packages/flutter_app_publisher/lib/src/publishers/qiniu/) - Publish your app to `qiniu`.
-- [vercel](./packages/flutter_app_publisher/lib/src/publishers/vercel/) - Publish your app to `vercel`.
+### Supported Distribution Platforms
 
-## Getting Started
+- [App Center](https://fastforge.dev/en/publishers/appcenter)
+- [App Store](https://fastforge.dev/en/publishers/appstore)
+- [Firebase](https://fastforge.dev/en/publishers/firebase)
+- [Firebase Hosting](https://fastforge.dev/en/publishers/firebase-hosting)
+- [FIR](https://fastforge.dev/en/publishers/fir)
+- [GitHub Releases](https://fastforge.dev/en/publishers/github)
+- [PGYER](https://fastforge.dev/en/publishers/pgyer)
+- [Play Store](https://fastforge.dev/en/publishers/playstore)
+- [Qiniu](https://fastforge.dev/en/publishers/qiniu)
+- [Vercel](https://fastforge.dev/en/publishers/vercel)
+- More platform support coming soon...
 
-### Installation
+## Installation
 
-```
+```bash
 dart pub global activate fastforge
 ```
 
-### Usage
+## Quick Start
 
-Add `distribute_options.yaml` to your project root directory.
+1. Add `distribute_options.yaml` to your project root:
 
 ```yaml
 variables:
-  PGYER_API_KEY: "your api key"
+  PGYER_API_KEY: "your api key" # Replace with your own API keys
 output: dist/
 releases:
   - name: dev
     jobs:
-      # Build and publish your apk pkg to pgyer
+      # Build and publish APK to PGYER
       - name: release-dev-android
         package:
           platform: android
@@ -81,7 +80,8 @@ releases:
             dart-define:
               APP_ENV: dev
         publish_to: pgyer
-      # Build and publish your ipa pkg to pgyer
+
+      # Build and publish IPA to PGYER
       - name: release-dev-ios
         package:
           platform: ios
@@ -95,9 +95,29 @@ releases:
 
 > The `build_args` are the args supported by the `flutter build` command, please modify it according to your project.
 
-#### Release Your App
+2. Release your app:
 
+```bash
+fastforge release --name dev
 ```
+
+## CLI Commands
+
+### Package Your App
+
+```bash
+fastforge package --platform=android --targets=aab,apk
+```
+
+### Publish a Package
+
+```bash
+fastforge publish --path dist/your-app-1.0.0+1-android.apk --targets pgyer
+```
+
+### Release (Package + Publish)
+
+```bash
 fastforge release --name dev
 ```
 
@@ -105,7 +125,6 @@ fastforge release --name dev
 
 - [Biyi](https://biyidev.com/) - A convenient translation and dictionary app.
 - [Qianji](https://qianjiapp.com/) - A purely bookkeeping app.
-- [Alga](https://github.com/laiiihz/alga/) - A developer tools app.
 - [Airclap](https://airclap.app/) - Send any file to any device. cross platform, ultra fast and easy to use.
 
 ## Contributors

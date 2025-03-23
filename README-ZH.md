@@ -22,56 +22,55 @@
 
 完整的文档可以在 [fastforge.dev](https://fastforge.dev/zh) 上找到。
 
-## 功能
+## Features
 
-### 制作器
+- **全面的打包格式支持** - 轻松生成平台特定的分发文件，包括APK、IPA和桌面安装包。
+- **无缝分发平台集成** - 直接发布到包括Google Play Store和Apple App Store在内的主要应用市场，简化您的发布流程。
+- **灵活的配置选项** - 通过直观且强大的配置设置自定义您的打包和发布过程。
+- **面向未来的更新** - 持续维护以确保与最新Flutter框架和平台要求的兼容性。
 
-- [aab](./packages/flutter_app_packager/lib/src/makers/aab/) - 为你的应用创建一个 `aab` 包。
-- [apk](./packages/flutter_app_packager/lib/src/makers/apk/) - 为你的应用创建一个 `apk` 包。
-- [appimage](./packages/flutter_app_packager/lib/src/makers/appimage/) - 为你的应用创建一个 `AppImage` 包。
-- [deb](./packages/flutter_app_packager/lib/src/makers/deb/) - 为你的应用创建一个 `deb` 包。
-- [dmg](./packages/flutter_app_packager/lib/src/makers/dmg/) - 为你的应用创建一个 `dmg` 包。
-- [exe](./packages/flutter_app_packager/lib/src/makers/exe/) - 为你的应用创建一个 `exe` 包。
-- [ipa](./packages/flutter_app_packager/lib/src/makers/ipa/) - 为你的应用创建一个 `ipa` 包。
-- [msix](./packages/flutter_app_packager/lib/src/makers/msix/) - 为你的应用创建一个 `msix` 包。
-- [pacman](./packages/flutter_app_packager/lib/src/makers/pacman/) - 为你的应用创建一个 `pacman` 包。
-- [pkg](./packages/flutter_app_packager/lib/src/makers/pkg/) - 为你的应用创建一个 `pkg` 包。
-- [rpm](./packages/flutter_app_packager/lib/src/makers/rpm/) - 为你的应用创建一个 `rpm` 包。
-- [zip](./packages/flutter_app_packager/lib/src/makers/zip/) - 为你的应用创建一个 `zip` 包。
+### Supported Package Formats
 
-### 发布器
+- **Android**: [AAB](https://fastforge.dev/en/makers/aab), [APK](https://fastforge.dev/en/makers/apk)
+- **iOS**: [IPA](https://fastforge.dev/en/makers/ipa)
+- **Linux**: [AppImage](https://fastforge.dev/en/makers/appimage), [DEB](https://fastforge.dev/en/makers/deb), [RPM](https://fastforge.dev/en/makers/rpm), Pacman
+- **macOS**: [DMG](https://fastforge.dev/en/makers/dmg), [PKG](https://fastforge.dev/en/makers/pkg)
+- **Windows**: [EXE](https://fastforge.dev/en/makers/exe), [MSIX](https://fastforge.dev/en/makers/msix)
+- **Universal**: [ZIP](https://fastforge.dev/en/makers/zip)
+- 更多格式支持即将推出...
 
-- [appcenter](./packages/flutter_app_publisher/lib/src/publishers/appcenter/) - 把你的应用发布到 `appcenter`.
-- [appstore](./packages/flutter_app_publisher/lib/src/publishers/appstore/) - 把你的应用发布到 `appstore`.
-- [fir](./packages/flutter_app_publisher/lib/src/publishers/fir/) - 把你的应用发布到 `fir`。
-- [firebase](./packages/flutter_app_publisher/lib/src/publishers/firebase/) - 把你的应用发布到 `firebase`。
-- [firebase_hosting](./packages/flutter_app_publisher/lib/src/publishers/firebase_hosting/) - 把你的应用发布到 `firebase_hosting`。
-- [github](./packages/flutter_app_publisher/lib/src/publishers/github/) - 把你的应用发布到 `github` release。
-- [pgyer](./packages/flutter_app_publisher/lib/src/publishers/pgyer/) - 把你的应用发布到 `pgyer`。
-- [playstore](./packages/flutter_app_publisher/lib/src/publishers/playstore/) - Publish your app to `playstore`.
-- [qiniu](./packages/flutter_app_publisher/lib/src/publishers/qiniu/) - 把你的应用发布到 `qiniu`。
-- [vercel](./packages/flutter_app_publisher/lib/src/publishers/vercel/) - 把你的应用发布到 `vercel`。
+### Supported Distribution Platforms
 
-## 立即开始
+- [App Center](https://fastforge.dev/en/publishers/appcenter)
+- [App Store](https://fastforge.dev/en/publishers/appstore)
+- [Firebase](https://fastforge.dev/en/publishers/firebase)
+- [Firebase Hosting](https://fastforge.dev/en/publishers/firebase-hosting)
+- [FIR](https://fastforge.dev/en/publishers/fir)
+- [GitHub Releases](https://fastforge.dev/en/publishers/github)
+- [PGYER](https://fastforge.dev/en/publishers/pgyer)
+- [Play Store](https://fastforge.dev/en/publishers/playstore)
+- [Qiniu](https://fastforge.dev/en/publishers/qiniu)
+- [Vercel](https://fastforge.dev/en/publishers/vercel)
+- 更多平台支持即将推出...
 
 ### 安装
 
-```
+```bash
 dart pub global activate fastforge
 ```
 
-### 用法
+## Quick Start
 
-将 `distribute_options.yaml` 添加到你的项目根目录。
+1. Add `distribute_options.yaml` to your project root:
 
 ```yaml
 variables:
-  PGYER_API_KEY: "your api key"
+  PGYER_API_KEY: "your api key" # Replace with your own API keys
 output: dist/
 releases:
   - name: dev
     jobs:
-      # 构建并发布您的 apk 包到 pgyer
+      # Build and publish APK to PGYER
       - name: release-dev-android
         package:
           platform: android
@@ -81,7 +80,8 @@ releases:
             dart-define:
               APP_ENV: dev
         publish_to: pgyer
-      # 构建并发布您的 ipa 包到 pgyer
+
+      # Build and publish IPA to PGYER
       - name: release-dev-ios
         package:
           platform: ios
@@ -95,9 +95,29 @@ releases:
 
 > `build_args` 是 `flutter build` 命令所支持的参数，请根据你的项目进行修改。
 
-#### 发布你的应用
+2. Release your app:
 
+```bash
+fastforge release --name dev
 ```
+
+## CLI Commands
+
+### Package Your App
+
+```bash
+fastforge package --platform=android --targets=aab,apk
+```
+
+### Publish a Package
+
+```bash
+fastforge publish --path dist/your-app-1.0.0+1-android.apk --targets pgyer
+```
+
+### Release (Package + Publish)
+
+```bash
 fastforge release --name dev
 ```
 
@@ -105,7 +125,6 @@ fastforge release --name dev
 
 - [比译](https://biyidev.com/) - 一个便捷的翻译和词典应用。
 - [钱迹](https://qianjiapp.com/) - 一款纯粹记账的应用。
-- [Alga](https://github.com/laiiihz/alga/) - 一个开发者工具应用。
 - [Airclap](https://airclap.app/) - 任何文件，任意设备，随意发送。简单好用的跨平台高速文件传输 APP。
 
 ## 贡献者
