@@ -10,7 +10,7 @@
 
 The ultimate all-in-one [Flutter](https://flutter.dev) application packaging and distribution tool, providing a seamless solution for all your distribution needs.
 
-> **Name Change Notice:** ~~Flutter Distributor~~ has been renamed to FastForge. If you were previously using ~~Flutter Distributor~~, please note that all functionality remains the same, but the package name, commands, and documentation have been updated to reflect this change.
+> **Name Change Notice:** ~~Flutter Distributor~~ has been renamed to Fastforge. If you were previously using ~~Flutter Distributor~~, please note that all functionality remains the same, but the package name, commands, and documentation have been updated to reflect this change.
 
 ---
 
@@ -24,8 +24,8 @@ Complete documentation is available at [fastforge.dev](https://fastforge.dev/).
 
 ## Features
 
-- **Comprehensive Package Format Support** - Generate platform-specific distribution files including APK, IPA, and desktop installation packages with ease.
-- **Seamless Distribution Platform Integration** - Publish directly to major app marketplaces including the Google Play Store and Apple App Store, streamlining your release workflow.
+- **Comprehensive Package Format Support** - Effortlessly generate platform-specific distribution files including APK, IPA, and desktop installation packages.
+- **Seamless Distribution Platform Integration** - Publish directly to major app marketplaces including Google Play Store and Apple App Store, streamlining your release workflow.
 - **Flexible Configuration Options** - Customize your packaging and publishing process through intuitive yet powerful configuration settings.
 - **Future-Proof Updates** - Continuously maintained to ensure compatibility with the latest Flutter framework and platform requirements.
 
@@ -65,7 +65,7 @@ dart pub global activate fastforge
 
 ```yaml
 variables:
-  PGYER_API_KEY: "your api key" # Replace with your own API keys
+  PGYER_API_KEY: "your api key"  # Replace with your own API keys
 output: dist/
 releases:
   - name: dev
@@ -93,7 +93,7 @@ releases:
         publish_to: pgyer
 ```
 
-> Note: `build_args` are parameters supported by the `flutter build` command. Modify them according to your project requirements.
+> **Note:** `build_args` are parameters supported by the `flutter build` command. Modify them according to your project requirements.
 
 2. Release your app:
 
@@ -121,11 +121,63 @@ fastforge publish --path dist/your-app-1.0.0+1-android.apk --targets pgyer
 fastforge release --name dev
 ```
 
+## Examples
+
+Fastforge includes several example projects to help you get started:
+
+- **[hello_world](https://github.com/fastforgedev/fastforge/tree/main/examples/hello_world)** - Basic example demonstrating the core functionality.
+- **[multiple_flavors](https://github.com/fastforgedev/fastforge/tree/main/examples/multiple_flavors)** - Example showing how to configure multiple application flavors.
+- **[custom_binary_name](https://github.com/fastforgedev/fastforge/tree/main/examples/custom_binary_name)** - Example of how to customize binary output names.
+
+## Advanced Usage
+
+### Environment Variables
+
+Fastforge supports using environment variables in your configuration files. This is useful for sensitive information like API keys:
+
+```yaml
+variables:
+  API_KEY: ${PGYER_API_KEY}  # Uses the PGYER_API_KEY environment variable
+```
+
+### CI/CD Integration
+
+Fastforge works well in CI/CD environments. For example, with GitHub Actions:
+
+```yaml
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+      - name: Install Fastforge
+        run: dart pub global activate fastforge
+      - name: Build and release
+        run: fastforge release --name production
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+```
+
+Check the [documentation](https://fastforge.dev/) for more detailed CI/CD integration examples.
+
 ## Who's Using It?
 
 - [Biyi](https://biyidev.com/) - A convenient translation and dictionary app.
 - [Qianji](https://qianjiapp.com/) - A purely bookkeeping app.
 - [Airclap](https://airclap.app/) - Send any file to any device. cross platform, ultra fast and easy to use.
+
+## Contributing
+
+Contributions are welcome! If you'd like to help improve Fastforge:
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+Please make sure to update tests as appropriate and follow the existing code style.
 
 ## Contributors
 

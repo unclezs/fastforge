@@ -10,7 +10,7 @@
 
 卓越的 [Flutter](https://flutter.dev) 应用打包与发布工具，为您提供一站式解决方案，满足各种分发需求。
 
-> **更名通知：** ~~Flutter Distributor~~ 已更名为 FastForge。如果您之前使用的是 ~~Flutter Distributor~~，请注意所有功能保持不变，但包名、命令和文档已更新以反映此变更。
+> **更名通知：** ~~Flutter Distributor~~ 已更名为 Fastforge。如果您之前使用的是 ~~Flutter Distributor~~，请注意所有功能保持不变，但包名、命令和文档已更新以反映此变更。
 
 ---
 
@@ -24,10 +24,10 @@
 
 ## 特性
 
-- **全面的打包格式支持** - 轻松生成平台特定的分发文件，包括APK、IPA和桌面安装包。
-- **无缝集成主流分发平台** - 直接发布到Google Play Store和Apple App Store等主要应用市场，简化您的发布流程。
+- **全面的打包格式支持** - 轻松生成平台特定的分发文件，包括 APK、IPA 和桌面安装包。
+- **无缝集成主流分发平台** - 直接发布到 Google Play Store 和 Apple App Store 等主要应用市场，简化您的发布流程。
 - **灵活的配置选项** - 通过直观且强大的配置设置自定义您的打包和发布过程。
-- **持续更新与维护** - 确保与最新Flutter框架和平台要求的兼容性。
+- **持续更新与维护** - 确保与最新 Flutter 框架和平台要求的兼容性。
 
 ### 支持的打包格式
 
@@ -65,12 +65,12 @@ dart pub global activate fastforge
 
 ```yaml
 variables:
-  PGYER_API_KEY: "your api key" # 替换为您自己的API密钥
+  PGYER_API_KEY: "your api key"  # 替换为您自己的 API 密钥
 output: dist/
 releases:
   - name: dev
     jobs:
-      # 构建并发布APK到PGYER
+      # 构建并发布 APK 到 PGYER
       - name: release-dev-android
         package:
           platform: android
@@ -81,7 +81,7 @@ releases:
               APP_ENV: dev
         publish_to: pgyer
 
-      # 构建并发布IPA到PGYER
+      # 构建并发布 IPA 到 PGYER
       - name: release-dev-ios
         package:
           platform: ios
@@ -93,7 +93,7 @@ releases:
         publish_to: pgyer
 ```
 
-> 注意: `build_args` 是 `flutter build` 命令支持的参数，请根据您的项目需求进行修改。
+> **注意:** `build_args` 是 `flutter build` 命令支持的参数，请根据您的项目需求进行修改。
 
 2. 发布您的应用:
 
@@ -121,11 +121,63 @@ fastforge publish --path dist/your-app-1.0.0+1-android.apk --targets pgyer
 fastforge release --name dev
 ```
 
+## 示例项目
+
+Fastforge 包含多个示例项目，帮助您快速上手：
+
+- **[hello_world](https://github.com/fastforgedev/fastforge/tree/main/examples/hello_world)** - 演示核心功能的基础示例。
+- **[multiple_flavors](https://github.com/fastforgedev/fastforge/tree/main/examples/multiple_flavors)** - 展示如何配置多种应用风格的示例。
+- **[custom_binary_name](https://github.com/fastforgedev/fastforge/tree/main/examples/custom_binary_name)** - 展示如何自定义二进制输出名称的示例。
+
+## 高级用法
+
+### 环境变量
+
+Fastforge 支持在配置文件中使用环境变量，这对于 API 密钥等敏感信息非常有用：
+
+```yaml
+variables:
+  API_KEY: ${PGYER_API_KEY}  # 使用 PGYER_API_KEY 环境变量
+```
+
+### CI/CD 集成
+
+Fastforge 在 CI/CD 环境中工作良好。例如，使用 GitHub Actions：
+
+```yaml
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+      - name: 安装 Fastforge
+        run: dart pub global activate fastforge
+      - name: 构建并发布
+        run: fastforge release --name production
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+```
+
+更详细的 CI/CD 集成示例请查阅[文档](https://fastforge.dev/zh/)。
+
 ## 谁在使用？
 
 - [比译](https://biyidev.com/) - 一个便捷的翻译和词典应用。
 - [钱迹](https://qianjiapp.com/) - 一款纯粹记账的应用。
 - [Airclap](https://airclap.app/) - 任何文件，任意设备，随意发送。简单好用的跨平台高速文件传输 APP。
+
+## 参与贡献
+
+欢迎贡献代码！如果您想帮助改进 Fastforge：
+
+1. Fork 仓库
+2. 创建您的特性分支 (`git checkout -b feature/amazing-feature`)
+3. 提交您的更改 (`git commit -m '添加一些很棒的特性'`)
+4. 推送到分支 (`git push origin feature/amazing-feature`)
+5. 创建一个 Pull Request
+
+请确保适当更新测试并遵循现有的代码风格。
 
 ## 贡献者
 
