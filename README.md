@@ -22,12 +22,12 @@ English | [简体中文](./README-ZH.md)
 
 Complete documentation is available at [fastforge.dev](https://fastforge.dev/).
 
-## Features
+## Key Features
 
-- **Comprehensive Package Format Support** - Effortlessly generate platform-specific distribution files including APK, IPA, and desktop installation packages.
-- **Seamless Distribution Platform Integration** - Publish directly to major app marketplaces including Google Play Store and Apple App Store, streamlining your release workflow.
-- **Flexible Configuration Options** - Customize your packaging and publishing process through intuitive yet powerful configuration settings.
-- **Future-Proof Updates** - Continuously maintained to ensure compatibility with the latest Flutter framework and platform requirements.
+- 🚀 One-Click Build: Support for Android APK/AAB, iOS IPA, and more
+- 📦 Multi-Platform Release: Support for App Store, Google Play, Firebase, Pgyer, fir.im, etc.
+- 🔄 CI/CD Integration: Perfect integration with GitHub Actions, GitLab CI, and more
+- 🛠 Flexible Configuration: Support for multiple environments, flavors, and custom build arguments
 
 ### Supported Package Formats
 
@@ -65,7 +65,7 @@ dart pub global activate fastforge
 
 ```yaml
 variables:
-  PGYER_API_KEY: "your api key"  # Replace with your own API keys
+  PGYER_API_KEY: "your api key" # Replace with your own API keys
 output: dist/
 releases:
   - name: dev
@@ -137,7 +137,7 @@ Fastforge supports using environment variables in your configuration files. This
 
 ```yaml
 variables:
-  API_KEY: ${PGYER_API_KEY}  # Uses the PGYER_API_KEY environment variable
+  API_KEY: ${PGYER_API_KEY} # Uses the PGYER_API_KEY environment variable
 ```
 
 ### CI/CD Integration

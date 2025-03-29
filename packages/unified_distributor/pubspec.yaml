@@ -1,6 +1,6 @@
 name: unified_distributor
 description: A powerful and efficient tool for packaging and publishing your applications with ease.
-version: 0.1.0
+version: 0.1.1
 homepage: https://fastforge.dev
 repository: https://github.com/fastforgedev/fastforge/tree/main/packages/unified_distributor
 issue_tracker: https://github.com/fastforgedev/fastforge/issues

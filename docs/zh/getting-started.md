@@ -4,6 +4,13 @@ Fastforge 是一款全能的 Flutter 应用打包和发布工具，为您提供�
 
 > **更名通知：** ~~Flutter Distributor~~ 已更名为 Fastforge。如果您之前使用的是 ~~Flutter Distributor~~，请注意所有功能保持不变，但包名、命令和文档已更新以反映此变更。
 
+## 主要特性
+
+- 🚀 一键打包：支持 Android APK/AAB、iOS IPA 等多种格式
+- 📦 多平台发布：支持 App Store、Google Play、Firebase、蒲公英、fir.im 等
+- 🔄 CI/CD 集成：完美支持 GitHub Actions、GitLab CI 等持续集成平台
+- 🛠 灵活配置：支持多环境、多 flavor、自定义构建参数
+
 ## 安装
 
 ```
@@ -118,7 +125,7 @@ Fastforge 支持在配置文件中使用环境变量。这对于 API 密钥等�
 
 ```yaml
 variables:
-  API_KEY: ${PGYER_API_KEY}  # 使用 PGYER_API_KEY 环境变量
+  API_KEY: ${PGYER_API_KEY} # 使用 PGYER_API_KEY 环境变量
 ```
 
 ### CI/CD 集成

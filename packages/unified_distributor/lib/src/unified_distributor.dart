@@ -18,7 +18,13 @@ import 'package:unified_distributor/src/utils/logger.dart';
 import 'package:unified_distributor/src/utils/pub_dev_api.dart';
 import 'package:yaml/yaml.dart';
 
+/// A class that provides a unified interface for distributing applications
+/// across different platforms.
 class UnifiedDistributor {
+  /// Creates a new instance of the [UnifiedDistributor] class.
+  ///
+  /// The [packageName] parameter is the name of the package to be distributed.
+  /// The [displayName] parameter is the display name of the package.
   UnifiedDistributor(
     this.packageName,
     this.displayName,
@@ -26,7 +32,10 @@ class UnifiedDistributor {
     ShellExecutor.global = DefaultShellExecutor();
   }
 
+  /// The name of the package
   final String packageName;
+
+  /// The display name of the package
   final String displayName;
 
   final FlutterAppBuilder _builder = FlutterAppBuilder();
@@ -63,6 +72,8 @@ class UnifiedDistributor {
   }
 
   DistributeOptions? _distributeOptions;
+
+  /// Get the distribute options
   DistributeOptions get distributeOptions {
     if (_distributeOptions == null) {
       File file = File('distribute_options.yaml');
@@ -105,6 +116,10 @@ class UnifiedDistributor {
     return null;
   }
 
+  /// Check the version of the package
+  ///
+  /// This method checks the version of the package against the latest version
+  /// available on pub.dev.
   Future<CheckVersionResult> checkVersion() async {
     String? currentVersion = await _getCurrentVersion();
     String? latestVersion =
@@ -115,6 +130,7 @@ class UnifiedDistributor {
     );
   }
 
+  /// Get the current version of the package
   Future<String?> getCurrentVersion() async {
     return await _getCurrentVersion();
   }
@@ -208,6 +224,8 @@ class UnifiedDistributor {
   }
 
   /// Publish an application to a third party provider
+  ///
+  /// This method publishes an application to a third party provider.
   Future<List<PublishResult>> publish(
     FileSystemEntity fileSystemEntity,
     List<String> targets, {
@@ -275,6 +293,14 @@ class UnifiedDistributor {
     return publishResultList;
   }
 
+  /// Release an application to a third party provider
+  ///
+  /// This method releases an application to a third party provider.
+  ///
+  /// The [name] parameter is the name of the release to be released.
+  /// The [jobNameList] parameter is the list of job names to be released.
+  /// The [skipJobNameList] parameter is the list of job names to be skipped.
+  /// The [cleanBeforeBuild] parameter is a boolean that indicates whether to clean the build directory before building.
   Future<void> release(
     String name, {
     required List<String> jobNameList,

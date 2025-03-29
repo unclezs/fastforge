@@ -4,6 +4,13 @@ Fastforge is an all-in-one Flutter application packaging and distribution tool, 
 
 > **Name Change Notice:** ~~Flutter Distributor~~ has been renamed to Fastforge. If you were previously using ~~Flutter Distributor~~, please note that all functionality remains the same, but the package name, commands, and documentation have been updated to reflect this change.
 
+## Key Features
+
+- 🚀 One-Click Build: Support for Android APK/AAB, iOS IPA, and more
+- 📦 Multi-Platform Release: Support for App Store, Google Play, Firebase, Pgyer, fir.im, etc.
+- 🔄 CI/CD Integration: Perfect integration with GitHub Actions, GitLab CI, and more
+- 🛠 Flexible Configuration: Support for multiple environments, flavors, and custom build arguments
+
 ## Installation
 
 ```
@@ -118,7 +125,7 @@ Fastforge supports using environment variables in your configuration files. This
 
 ```yaml
 variables:
-  API_KEY: ${PGYER_API_KEY}  # Uses the PGYER_API_KEY environment variable
+  API_KEY: ${PGYER_API_KEY} # Uses the PGYER_API_KEY environment variable
 ```
 
 ### CI/CD Integration

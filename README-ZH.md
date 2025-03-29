@@ -22,12 +22,12 @@
 
 完整文档请访问 [fastforge.dev](https://fastforge.dev/zh)。
 
-## 特性
+## 主要特性
 
-- **全面的打包格式支持** - 轻松生成平台特定的分发文件，包括 APK、IPA 和桌面安装包。
-- **无缝集成主流分发平台** - 直接发布到 Google Play Store 和 Apple App Store 等主要应用市场，简化您的发布流程。
-- **灵活的配置选项** - 通过直观且强大的配置设置自定义您的打包和发布过程。
-- **持续更新与维护** - 确保与最新 Flutter 框架和平台要求的兼容性。
+- 🚀 一键打包：支持 Android APK/AAB、iOS IPA 等多种格式
+- 📦 多平台发布：支持 App Store、Google Play、Firebase、蒲公英、fir.im 等
+- 🔄 CI/CD 集成：完美支持 GitHub Actions、GitLab CI 等持续集成平台
+- 🛠 灵活配置：支持多环境、多 flavor、自定义构建参数
 
 ### 支持的打包格式
 
@@ -65,7 +65,7 @@ dart pub global activate fastforge
 
 ```yaml
 variables:
-  PGYER_API_KEY: "your api key"  # 替换为您自己的 API 密钥
+  PGYER_API_KEY: "your api key" # 替换为您自己的 API 密钥
 output: dist/
 releases:
   - name: dev
@@ -137,7 +137,7 @@ Fastforge 支持在配置文件中使用环境变量，这对于 API 密钥等�
 
 ```yaml
 variables:
-  API_KEY: ${PGYER_API_KEY}  # 使用 PGYER_API_KEY 环境变量
+  API_KEY: ${PGYER_API_KEY} # 使用 PGYER_API_KEY 环境变量
 ```
 
 ### CI/CD 集成

@@ -1,3 +1,7 @@
+## 0.5.1
+
+* Added a note to the CLI to inform users that `flutter_distributor` has been renamed to `fastforge`.
+
 ## 0.4.6
 
 * fix: fix build rpm on linux arm64 error (#204)

@@ -19,6 +19,19 @@ class UnifiedDistributorCommandLineInterface {
       displayName ?? executableName,
     );
 
+    if (packageName != 'fastforge') {
+      String note = [
+        '╔════════════════════════════════════════════════════════════════════════════╗',
+        '║ Important Notice: flutter_distributor has been renamed to fastforge.       ║',
+        '║ You can continue to use flutter_distributor, but we recommend migrating to ║',
+        '║ fastforge for the latest features and updates.                             ║',
+        '║                                                                            ║',
+        '║ Please visit https://fastforge.dev for more information.                   ║',
+        '╚════════════════════════════════════════════════════════════════════════════╝',
+      ].join('\n').yellow(bold: true);
+      description = '$note\n\n$description';
+    }
+
     _runner = CommandRunner(executableName, description);
     _runner.addCommand(CommandPackage(_distributor));
     _runner.addCommand(CommandPublish(_distributor));
