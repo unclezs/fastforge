@@ -4,6 +4,21 @@ Fastforge 是一款全能的 Flutter 应用打包和发布工具，为您提供�
 
 > **更名通知：** ~~Flutter Distributor~~ 已更名为 Fastforge。如果您之前使用的是 ~~Flutter Distributor~~，请注意所有功能保持不变，但包名、命令和文档已更新以反映此变更。
 
+<div style="display: flex; flex-direction: row; gap: 10px;">
+  <a href="https://github.com/fastforgedev/fastforge">
+    <img
+      alt="Fastforge on GitHub"
+      src="https://img.shields.io/github/stars/fastforgedev/fastforge?style=for-the-badge&logo=GitHub"
+    />
+  </a>
+  <a href="https://pub.dev/packages/fastforge">
+    <img alt="Pub Likes" src="https://img.shields.io/pub/likes/fastforge?style=for-the-badge&logo=flutter&label=Pub%20Likes"/>
+  </a>
+  <a href="https://github.com/fastforgedev/fastforge/graphs/contributors">
+    <img src="https://img.shields.io/github/all-contributors/fastforgedev/fastforge?style=for-the-badge" />
+  </a>
+</div>
+
 ## 主要特性
 
 - 🚀 一键打包：支持 Android APK/AAB、iOS IPA 等多种格式

@@ -4,6 +4,21 @@ Fastforge is an all-in-one Flutter application packaging and distribution tool, 
 
 > **Name Change Notice:** ~~Flutter Distributor~~ has been renamed to Fastforge. If you were previously using ~~Flutter Distributor~~, please note that all functionality remains the same, but the package name, commands, and documentation have been updated to reflect this change.
 
+<div style="display: flex; flex-direction: row; gap: 10px;">
+  <a href="https://github.com/fastforgedev/fastforge">
+    <img
+      alt="Fastforge on GitHub"
+      src="https://img.shields.io/github/stars/fastforgedev/fastforge?style=for-the-badge&logo=GitHub"
+    />
+  </a>
+  <a href="https://pub.dev/packages/fastforge">
+    <img alt="Pub Likes" src="https://img.shields.io/pub/likes/fastforge?style=for-the-badge&logo=flutter&label=Pub%20Likes"/>
+  </a>
+  <a href="https://github.com/fastforgedev/fastforge/graphs/contributors">
+    <img src="https://img.shields.io/github/all-contributors/fastforgedev/fastforge?style=for-the-badge" />
+  </a>
+</div>
+
 ## Key Features
 
 - 🚀 One-Click Build: Support for Android APK/AAB, iOS IPA, and more
