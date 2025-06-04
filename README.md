@@ -24,7 +24,7 @@ Complete documentation is available at [fastforge.dev](https://fastforge.dev/).
 
 ## Key Features
 
-- 🚀 One-Click Build: Support for Android APK/AAB, iOS IPA, and more
+- 🚀 One-Click Build: Support for Android APK/AAB, iOS IPA, OpenHarmony HAP/APP and more
 - 📦 Multi-Platform Release: Support for App Store, Google Play, Firebase, Pgyer, fir.im, etc.
 - 🔄 CI/CD Integration: Perfect integration with GitHub Actions, GitLab CI, and more
 - 🛠 Flexible Configuration: Support for multiple environments, flavors, and custom build arguments
@@ -33,6 +33,7 @@ Complete documentation is available at [fastforge.dev](https://fastforge.dev/).
 
 - **Android**: [AAB](https://fastforge.dev/en/makers/aab), [APK](https://fastforge.dev/en/makers/apk)
 - **iOS**: [IPA](https://fastforge.dev/en/makers/ipa)
+- **OpenHarmony**: [HAP](https://fastforge.dev/en/makers/hap), [APP](https://fastforge.dev/en/makers/app)
 - **Linux**: [AppImage](https://fastforge.dev/en/makers/appimage), [DEB](https://fastforge.dev/en/makers/deb), [RPM](https://fastforge.dev/en/makers/rpm), Pacman
 - **macOS**: [DMG](https://fastforge.dev/en/makers/dmg), [PKG](https://fastforge.dev/en/makers/pkg)
 - **Windows**: [EXE](https://fastforge.dev/en/makers/exe), [MSIX](https://fastforge.dev/en/makers/msix)

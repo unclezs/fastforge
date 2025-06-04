@@ -24,7 +24,7 @@
 
 ## 主要特性
 
-- 🚀 一键打包：支持 Android APK/AAB、iOS IPA 等多种格式
+- 🚀 一键打包：支持 Android APK/AAB、iOS IPA、OpenHarmony HAP/APP 等多种格式
 - 📦 多平台发布：支持 App Store、Google Play、Firebase、蒲公英、fir.im 等
 - 🔄 CI/CD 集成：完美支持 GitHub Actions、GitLab CI 等持续集成平台
 - 🛠 灵活配置：支持多环境、多 flavor、自定义构建参数
@@ -33,6 +33,7 @@
 
 - **Android**: [AAB](https://fastforge.dev/zh/makers/aab), [APK](https://fastforge.dev/zh/makers/apk)
 - **iOS**: [IPA](https://fastforge.dev/zh/makers/ipa)
+- **OpenHarmony**: [HAP](https://fastforge.dev/zh/makers/hap), [APP](https://fastforge.dev/zh/makers/app)
 - **Linux**: [AppImage](https://fastforge.dev/zh/makers/appimage), [DEB](https://fastforge.dev/zh/makers/deb), [RPM](https://fastforge.dev/zh/makers/rpm), Pacman
 - **macOS**: [DMG](https://fastforge.dev/zh/makers/dmg), [PKG](https://fastforge.dev/zh/makers/pkg)
 - **Windows**: [EXE](https://fastforge.dev/zh/makers/exe), [MSIX](https://fastforge.dev/zh/makers/msix)
