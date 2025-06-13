@@ -1,9 +1,11 @@
 # fastforge
 
-[![pub version][pub-image]][pub-url] [![][discord-image]][discord-url] [![melos](https://img.shields.io/badge/maintained%20with-melos-f700ff.svg?style=flat-square)](https://github.com/invertase/melos) [![All Contributors][all-contributors-image]](#contributors)
+[![pub version][pub-image]][pub-url] [![pub downloads][pub-dm-image]][pub-dm-url] [![][discord-image]][discord-url] [![melos](https://img.shields.io/badge/maintained%20with-melos-f700ff.svg?style=flat-square)](https://github.com/invertase/melos) [![All Contributors][all-contributors-image]](#contributors)
 
 [pub-image]: https://img.shields.io/pub/v/fastforge.svg?style=flat-square
 [pub-url]: https://pub.dev/packages/fastforge
+[pub-dm-image]: https://img.shields.io/pub/dm/fastforge.svg
+[pub-dm-url]: https://pub.dev/packages/fastforge/score
 [discord-image]: https://img.shields.io/discord/884679008049037342.svg?style=flat-square
 [discord-url]: https://discord.gg/zPa6EZ2jqb
 [all-contributors-image]: https://img.shields.io/github/all-contributors/fastforgedev/fastforge?color=ee8449&style=flat-square
