@@ -1,3 +1,7 @@
+## 0.2.0
+
+* feat: Support ohos platform.
+
 ## 0.1.1
 
 - Added a note to the CLI to inform users that `flutter_distributor` has been renamed to `fastforge`.

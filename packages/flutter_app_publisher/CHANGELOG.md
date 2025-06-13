@@ -1,3 +1,7 @@
+## 0.6.0
+
+* Better error if entity is not a file otherwise it looks like this: (#266)
+
 ## 0.4.6
 
 * feat: Use GitHub Actions environment variables as fallback when custom variables are not defined (#217)
