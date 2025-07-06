@@ -34,27 +34,6 @@ class CommandPublish extends Command {
       help: 'The target provider(s) to publish to.',
     );
 
-    // AppCenter
-    argParser.addSeparator('appcenter');
-
-    argParser.addOption(
-      'appcenter-owner-name',
-      valueHelp: '',
-      help: 'The owner name for appcenter.',
-    );
-
-    argParser.addOption(
-      'appcenter-app-name',
-      valueHelp: '',
-      help: 'The app name for appcenter.',
-    );
-
-    argParser.addOption(
-      'appcenter-distribution-group',
-      valueHelp: '',
-      help: 'The distribution group for appcenter.',
-    );
-
     // Firebase
     argParser.addSeparator('firebase');
 
@@ -121,21 +100,42 @@ class CommandPublish extends Command {
     argParser.addSeparator('github');
 
     argParser.addOption(
+      'github-repo',
+      valueHelp: '',
+      help: 'The repository to publish to, format: <owner>/<repo>',
+    );
+
+    argParser.addOption(
       'github-repo-owner',
       valueHelp: '',
-      help: 'The name of the target GitHub repository wner (namespace)',
+      help:
+          '[Deprecated] The name of the target GitHub repository owner (namespace)',
     );
 
     argParser.addOption(
       'github-repo-name',
       valueHelp: '',
-      help: 'The name of the target GitHub repository',
+      help: '[Deprecated] The name of the target GitHub repository',
     );
 
     argParser.addOption(
       'github-release-title',
       valueHelp: '',
       help: 'The title of the new release on GitHub',
+    );
+
+    argParser.addOption(
+      'github-release-draft',
+      valueHelp: 'true|false',
+      help: 'Whether to create a draft release',
+      defaultsTo: 'false',
+    );
+
+    argParser.addOption(
+      'github-release-prerelease',
+      valueHelp: 'true|false',
+      help: 'Whether to create a prerelease',
+      defaultsTo: 'false',
     );
 
     // PlayStore
@@ -182,7 +182,6 @@ class CommandPublish extends Command {
       exit(1);
     }
 
-    print(targets);
     if (targets.isEmpty) {
       print('\nAt least one \'target\' must be specified!'.red(bold: true));
       exit(1);
@@ -197,10 +196,6 @@ class CommandPublish extends Command {
     }
 
     Map<String, String?> publishArguments = {
-      'appcenter-owner-name': argResults?['appcenter-owner-name'],
-      'appcenter-app-name': argResults?['appcenter-app-name'],
-      'appcenter-distribution-group':
-          argResults?['appcenter-distribution-group'],
       'firebase-app': argResults?['firebase-app'],
       'firebase-release-notes': argResults?['firebase-release-notes'],
       'firebase-release-notes-file': argResults?['firebase-release-notes-file'],
@@ -209,9 +204,12 @@ class CommandPublish extends Command {
       'firebase-groups': argResults?['firebase-groups'],
       'firebase-groups-file': argResults?['firebase-groups-file'],
       'firebase-hosting-project-id': argResults?['firebase-hosting-project-id'],
+      'github-repo': argResults?['github-repo'],
       'github-repo-owner': argResults?['github-repo-owner'],
       'github-repo-name': argResults?['github-repo-name'],
       'github-release-title': argResults?['github-release-title'],
+      'github-release-draft': argResults?['github-release-draft'],
+      'github-release-prerelease': argResults?['github-release-prerelease'],
       'playstore-package-name': argResults?['playstore-package-name'],
       'playstore-track': argResults?['playstore-track'],
       'qiniu-bucket': argResults?['qiniu-bucket'],

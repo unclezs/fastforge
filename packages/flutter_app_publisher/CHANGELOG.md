@@ -1,3 +1,8 @@
+## 0.6.1
+
+* GitHub publisher supports `repo` argument to replace `repo-owner` and `repo-name` arguments
+* GitHub publisher supports `release-draft` and `release-prerelease` arguments
+
 ## 0.6.0
 
 * Better error if entity is not a file otherwise it looks like this: (#266)

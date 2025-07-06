@@ -1,3 +1,9 @@
+## 0.6.1
+
+* GitHub publisher supports `repo` argument to replace `repo-owner` and `repo-name` arguments
+* GitHub publisher supports `release-draft` and `release-prerelease` arguments
+* Remove AppCenter publisher
+
 ## 0.6.0
 
 * [FIX] Google Play Bundle is uploaded but the result is ignored (#261)
