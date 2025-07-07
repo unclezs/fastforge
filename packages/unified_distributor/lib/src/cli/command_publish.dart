@@ -21,7 +21,6 @@ class CommandPublish extends Command {
       'targets',
       aliases: ['target'],
       valueHelp: [
-        'appcenter',
         'appstore',
         'fir',
         'firebase',
@@ -32,6 +31,15 @@ class CommandPublish extends Command {
         'vercel',
       ].join(','),
       help: 'The target provider(s) to publish to.',
+    );
+
+    argParser.addOption(
+      'app-version',
+      valueHelp: '',
+      help: [
+        'The version of the app',
+        'Must follow semantic versioning format, e.g., 1.0.0, 2.1.3-beta.1',
+      ].join('\n'),
     );
 
     // Firebase
@@ -196,6 +204,7 @@ class CommandPublish extends Command {
     }
 
     Map<String, String?> publishArguments = {
+      'app-version': argResults?['app-version'],
       'firebase-app': argResults?['firebase-app'],
       'firebase-release-notes': argResults?['firebase-release-notes'],
       'firebase-release-notes-file': argResults?['firebase-release-notes-file'],

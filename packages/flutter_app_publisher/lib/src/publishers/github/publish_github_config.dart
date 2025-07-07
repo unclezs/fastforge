@@ -7,12 +7,13 @@ const kEnvGithubRepository = 'GITHUB_REPOSITORY';
 
 class PublishGithubConfig extends PublishConfig {
   PublishGithubConfig({
+    String? appVersion,
     required this.token,
     required this.repository,
     this.releaseTitle,
     this.releaseDraft = false,
     this.releasePrerelease = false,
-  });
+  }) : super(appVersion: appVersion);
 
   /// Parse GitHub configuration from environment variables and publish arguments.
   ///
@@ -67,28 +68,24 @@ class PublishGithubConfig extends PublishConfig {
     }
 
     PublishGithubConfig publishConfig = PublishGithubConfig(
+      appVersion: publishArguments?['app-version'],
       token: token!,
       repository: repository,
       releaseDraft: releaseDraft,
       releasePrerelease: releasePrerelease,
     );
 
-    // Build release title with variable substitution support.
-    // Supported variables:
-    // - {appVersion}: Full version string (e.g., "1.0.0+1")
-    // - {appBuildName}: Version without build number (e.g., "1.0.0")
-    // - {appBuildNumber}: Build number only (e.g., "1")
-    String appVersion = publishConfig.pubspec.version.toString();
-    String appBuildName = appVersion.split('+').first;
-    String appBuildNumber = appVersion.split('+').last;
-
-    if ((releaseTitle ?? '').trim().isEmpty) {
-      publishConfig.releaseTitle = 'v$appVersion';
-    } else {
-      publishConfig.releaseTitle = releaseTitle!
-          .replaceAll('{appVersion}', appBuildName)
-          .replaceAll('{appBuildName}', appBuildName)
-          .replaceAll('{appBuildNumber}', appBuildNumber);
+    Version? appVersion = publishConfig.appVersion;
+    if (appVersion != null) {
+      if ((releaseTitle ?? '').trim().isEmpty) {
+        publishConfig.releaseTitle = 'v${appVersion.toString()}';
+      } else {
+        // TODO(lijy91): Use semver format for version substitution
+        publishConfig.releaseTitle = releaseTitle!
+            .replaceAll('{appVersion}', appVersion.versionCore)
+            .replaceAll('{appBuildName}', appVersion.versionCore)
+            .replaceAll('{appBuildNumber}', appVersion.build.join('.'));
+      }
     }
     return publishConfig;
   }

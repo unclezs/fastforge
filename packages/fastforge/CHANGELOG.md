@@ -1,3 +1,7 @@
+## 0.6.2
+
+* feat: Support `app-version` argument to override version from pubspec.yaml (future versions will not read from pubspec.yaml)
+
 ## 0.6.1
 
 * GitHub publisher supports `repo` argument to replace `repo-owner` and `repo-name` arguments
