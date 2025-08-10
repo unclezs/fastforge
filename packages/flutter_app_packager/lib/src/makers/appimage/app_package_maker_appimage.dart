@@ -210,35 +210,42 @@ class AppPackageMakerAppImage extends AppPackageMaker {
         ),
       );
 
-      await Future.wait(
-        appSOLibs.map((so) async {
-          final referencedSharedLibs =
-              await _getSharedDependencies(so.path).then(
-            (d) => d.difference(libFlutterGtkDeps)
-              ..removeWhere(
-                (lib) => lib.contains('libflutter_linux_gtk.so'),
-              ),
-          );
+      // 收集所有需要的共享库依赖，自动去重
+      final allReferencedSharedLibs = <String>{};
 
-          if (referencedSharedLibs.isEmpty) return;
+      for (final so in appSOLibs) {
+        final referencedSharedLibs = await _getSharedDependencies(so.path).then(
+          (d) => d.difference(libFlutterGtkDeps)
+            ..removeWhere(
+              (lib) => lib.contains('libflutter_linux_gtk.so'),
+            ),
+        );
+        allReferencedSharedLibs.addAll(referencedSharedLibs);
+      }
 
-          await $(
-            'cp',
-            [
-              '-f',
-              ...referencedSharedLibs,
-              path.join(
-                makeConfig.packagingDirectory.path,
-                '${makeConfig.appName}.AppDir/usr/lib',
-              ),
-            ],
-          ).then((value) {
-            if (value.exitCode != 0) {
-              throw MakeError(value.stderr as String);
-            }
-          });
-        }),
-      );
+      // 如果有依赖库需要复制，则进行复制
+      if (allReferencedSharedLibs.isNotEmpty) {
+        print('DEBUG: 准备复制 ${allReferencedSharedLibs.length} 个共享库依赖');
+        print('DEBUG: 依赖库列表: ${allReferencedSharedLibs.join(', ')}');
+
+        await $(
+          'cp',
+          [
+            '-f',
+            ...allReferencedSharedLibs,
+            path.join(
+              makeConfig.packagingDirectory.path,
+              '${makeConfig.appName}.AppDir/usr/lib',
+            ),
+          ],
+        ).then((value) {
+          if (value.exitCode != 0) {
+            throw MakeError(value.stderr as String);
+          }
+        });
+      } else {
+        print('DEBUG: 没有需要复制的共享库依赖');
+      }
 
       await Future.wait(
         makeConfig.include.map((so) async {
