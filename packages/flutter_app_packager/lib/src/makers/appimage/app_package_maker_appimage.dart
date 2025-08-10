@@ -65,7 +65,7 @@ class AppPackageMakerAppImage extends AppPackageMaker {
   }) async {
     try {
       await $('cp', [
-        '-r',
+        '-rf',
         appDirectory.path,
         path.join(
           makeConfig.packagingDirectory.path,
@@ -225,6 +225,7 @@ class AppPackageMakerAppImage extends AppPackageMaker {
           await $(
             'cp',
             [
+              '-f',
               ...referencedSharedLibs,
               path.join(
                 makeConfig.packagingDirectory.path,
