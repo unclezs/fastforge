@@ -228,15 +228,27 @@ class AppPackageMakerAppImage extends AppPackageMaker {
         print('DEBUG: 准备复制 ${allReferencedSharedLibs.length} 个共享库依赖');
         print('DEBUG: 依赖库列表: ${allReferencedSharedLibs.join(', ')}');
 
+        // 先确保目标目录存在
+        final targetLibDir = path.join(
+          makeConfig.packagingDirectory.path,
+          '${makeConfig.appName}.AppDir/usr/lib',
+        );
+
+        // 先删除已存在的目标文件，再复制新文件
+        for (final lib in allReferencedSharedLibs) {
+          final targetFile = path.join(targetLibDir, path.basename(lib));
+          final targetFileObj = File(targetFile);
+          if (targetFileObj.existsSync()) {
+            targetFileObj.deleteSync();
+          }
+        }
+
+        // 复制所有共享库
         await $(
           'cp',
           [
-            '-f',
             ...allReferencedSharedLibs,
-            path.join(
-              makeConfig.packagingDirectory.path,
-              '${makeConfig.appName}.AppDir/usr/lib',
-            ),
+            targetLibDir,
           ],
         ).then((value) {
           if (value.exitCode != 0) {
