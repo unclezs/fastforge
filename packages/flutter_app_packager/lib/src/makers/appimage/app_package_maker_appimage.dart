@@ -65,7 +65,7 @@ class AppPackageMakerAppImage extends AppPackageMaker {
   }) async {
     try {
       await $('cp', [
-        '-r',
+        '-rf',
         appDirectory.path,
         path.join(
           makeConfig.packagingDirectory.path,
@@ -210,34 +210,36 @@ class AppPackageMakerAppImage extends AppPackageMaker {
         ),
       );
 
-      await Future.wait(
-        appSOLibs.map((so) async {
-          final referencedSharedLibs =
-              await _getSharedDependencies(so.path).then(
-            (d) => d.difference(libFlutterGtkDeps)
-              ..removeWhere(
-                (lib) => lib.contains('libflutter_linux_gtk.so'),
-              ),
-          );
+      final allReferencedSharedLibs = <String>{};
+      final copiedLibFiles = <String>{};
 
-          if (referencedSharedLibs.isEmpty) return;
+      for (final so in appSOLibs) {
+        final referencedSharedLibs = await _getSharedDependencies(so.path).then(
+          (d) => d.difference(libFlutterGtkDeps)
+            ..removeWhere(
+              (lib) => lib.contains('libflutter_linux_gtk.so'),
+            ),
+        );
+        allReferencedSharedLibs.addAll(referencedSharedLibs);
+      }
 
-          await $(
-            'cp',
-            [
-              ...referencedSharedLibs,
-              path.join(
-                makeConfig.packagingDirectory.path,
-                '${makeConfig.appName}.AppDir/usr/lib',
-              ),
-            ],
-          ).then((value) {
-            if (value.exitCode != 0) {
-              throw MakeError(value.stderr as String);
-            }
-          });
-        }),
-      );
+      if (allReferencedSharedLibs.isNotEmpty) {
+
+        final targetLibDir = path.join(
+          makeConfig.packagingDirectory.path,
+          '${makeConfig.appName}.AppDir/usr/lib',
+        );
+
+        for (final lib in allReferencedSharedLibs) {
+          final targetFile = path.join(targetLibDir, path.basename(lib));
+          final targetFileObj = File(targetFile);
+          if (targetFileObj.existsSync()) {
+            targetFileObj.deleteSync();
+          }
+          await File(lib).copy(targetFile);
+          copiedLibFiles.add(path.basename(lib));
+        }
+      }
 
       await Future.wait(
         makeConfig.include.map((so) async {
@@ -257,13 +259,20 @@ class AppPackageMakerAppImage extends AppPackageMaker {
             return File(paths.first.trim());
           });
 
-          await file.copy(
-            path.join(
+          final fileName = path.basename(file.path);
+          if (!copiedLibFiles.contains(fileName)) {
+            final targetFilePath = path.join(
               makeConfig.packagingDirectory.path,
               '${makeConfig.appName}.AppDir/usr/lib/',
-              path.basename(file.path),
-            ),
-          );
+              fileName,
+            );
+            final targetFileObj = File(targetFilePath);
+            if (targetFileObj.existsSync()) {
+              targetFileObj.deleteSync();
+            }
+            await file.copy(targetFilePath);
+            copiedLibFiles.add(fileName);
+          }
         }),
       );
 
